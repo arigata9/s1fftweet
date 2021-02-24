@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <%- include('../partials/head'); %>
+    </head>
+    <body id="page-top">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+            <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">arigata9 $1fftvv€€t$</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="http://arigata9.de">arigata9</a>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+        
+        <%- include('../partials/header'); %>
+
+        <section id="about">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-8 mx-auto">
+                  <h2>Ver$1ff deinen Tweet</h2>
+                  <p class="lead">Dieses innovative Werkzeug aus der Zukunft v€r$1fft für dich f4ul€n $4ck. Gib deinen normie tvv€€t ein und dieses innovative Werkzeug der Zukunft verwandelt deinen $ch€1$$ in einen vernünftigen platin-$1fftvv€€t.</p>
+                  <br>
+                  <input type="text" class="form-control" placeholder="Dein normie tvv€€t" aria-label="Dein normie tvv€€t" id="stage1" onkeyup="initiateVersiffung()"><br>
+                  <input type="text" class="form-control" placeholder="Dein $1fftvv€€t" aria-label="Dein $1fftvv€€t" id="stage2"><br>
+                  <div class="col-lg-6 mx-auto">
+                    <button type="button" class="btn btn-outline-primary" onclick="shareVersiffung()">Direkt mal zwitschern den $1ff</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+        <%- include('../partials/footer'); %>
+
+        <script type="text/javascript">
+            /*
+            * $1fftvv€€t Engine v1.0
+            * (c) 2021 arigata9
+            * D1€ t0t4l€ v€r$1ffung
+            */
+          
+            function initiateVersiffung() {
+            const input = document.getElementById('stage1').value;
+            const stage1 = input.replace(/[sS]/g, '$');
+            const stage2 = stage1.replace(/[eE]/g, '€');
+            const stage3 = stage2.replace(/[iI]/g, '1');
+            const stage4 = stage3.replace(/[aA]/g, '@');
+            const stage5 = stage4.replace(/[oO]/g, '0');
+            const stage6 = stage5.replace(/w/g, 'vv');
+            const stage7 = stage6.replace(/W/g, 'VV');
+          
+            document.getElementById('stage2').value = stage7;
+            }
+
+            function shareVersiffung() {
+              const zwitscher = document.getElementById('stage2').value;
+              if (zwitscher === "") {
+                return alert('Gib dich und deinem normie shit der V€r$1ffung hin! Gib deinen normie shit ein! Jetzt!');
+              }
+              const zwitscher4url = zwitscher.replace(/\s/g, '%20')
+              let w = window.open('https://twitter.com/intent/tweet?text=' + zwitscher4url);
+              w.focus();
+            }
+          </script>
+
+    </body>
+</html>
