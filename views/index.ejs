@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<!--
+
+  If you can read this
+  fu this is my code
+  
+  (╯°□°）╯︵ ┻━┻
+  
+-->
 <html lang="de">
     <head>
         <%- include('../partials/head'); %>
@@ -32,8 +40,13 @@
                   <br>
                   <input type="text" class="form-control" placeholder="Dein normie tvv€€t" aria-label="Dein normie tvv€€t" id="stage1" onkeyup="initiateVersiffung()"><br>
                   <input type="text" class="form-control" placeholder="Dein $1fftvv€€t" aria-label="Dein $1fftvv€€t" id="stage2"><br>
-                  <div class="col-lg-6 mx-auto">
-                    <button type="button" class="btn btn-outline-primary" onclick="shareVersiffung()">Direkt mal zwitschern den $1ff</button>
+                  <div class="row">
+                    <div class="col-lg-3 mx-auto">
+                      <button type="button" class="btn btn-outline-primary" onclick="copyVersiffung()" id="copybtn">Direkt mal kopieren</button>
+                    </div>
+                    <div class="col-lg-3 mx-auto">
+                      <button type="button" class="btn btn-outline-primary" onclick="shareVersiffung()">Direkt mal zwitschern den $1ff</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -51,16 +64,30 @@
             */
           
             function initiateVersiffung() {
-            const input = document.getElementById('stage1').value;
-            const stage1 = input.replace(/[sS]/g, '$');
-            const stage2 = stage1.replace(/[eE]/g, '€');
-            const stage3 = stage2.replace(/[iI]/g, '1');
-            const stage4 = stage3.replace(/[aA]/g, '@');
-            const stage5 = stage4.replace(/[oO]/g, '0');
-            const stage6 = stage5.replace(/w/g, 'vv');
-            const stage7 = stage6.replace(/W/g, 'VV');
-          
-            document.getElementById('stage2').value = stage7;
+              const input = document.getElementById('stage1').value;
+              const stage1 = input.replace(/(\@[^\s]*\s)|[sS]/gi, function(a, b) {
+                return b || '$'; }
+              );
+              const stage2 = stage1.replace(/(\@[^\s]*\s)|[eE]/gi, function(a, b) {
+                return b || '€'; }
+              );
+              const stage3 = stage2.replace(/(\@[^\s]*\s)|[iI]/gi, function(a, b) {
+                return b || '1'; }
+              );
+              const stage4 = stage3.replace(/(\@[^\s]*\s)|[aA]/gi, function(a, b) {
+                return b || '4'; }
+              );
+              const stage5 = stage4.replace(/(\@[^\s]*\s)|[oO]/gi, function(a, b) {
+                return b || '0'; }
+              );
+              const stage6 = stage5.replace(/(\@[^\s]*\s)|w/gi, function(a, b) {
+                return b || 'vv'; }
+              );
+              const stage7 = stage6.replace(/(\@[^\s]*\s)|W/gi, function(a, b) {
+                return b || 'VV'; }
+              );
+            
+              document.getElementById('stage2').value = stage7;
             }
 
             function shareVersiffung() {
@@ -71,6 +98,15 @@
               const zwitscher4url = zwitscher.replace(/\s/g, '%20')
               let w = window.open('https://twitter.com/intent/tweet?text=' + zwitscher4url);
               w.focus();
+            }
+
+            function copyVersiffung() {
+              const zwitscher = document.getElementById('stage2');
+              zwitscher.select();
+              zwitscher.setSelectionRange(0, 99999);
+              document.execCommand("copy");
+
+              document.getElementById('copybtn').innerHTML = 'Copied!'
             }
           </script>
 
